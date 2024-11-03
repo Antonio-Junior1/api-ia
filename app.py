@@ -1,6 +1,7 @@
 from flask import Flask, request, jsonify
 from flask_cors import CORS
 import pickle
+import os
 
 app = Flask(__name__)
 # Habilitar CORS apenas para o domínio da sua aplicação Next.js
@@ -38,5 +39,6 @@ def prever():
         return jsonify({'erro': f'Erro ao processar a previsão: {str(e)}'}), 500
 
 if __name__ == "__main__":
-    # Torna o servidor acessível externamente
-    app.run(host="0.0.0.0")
+    # Torna o servidor acessível externamente e usa a porta fornecida pela variável de ambiente
+    port = int(os.environ.get("PORT", 5000))
+    app.run(host="0.0.0.0", port=port)
