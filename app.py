@@ -5,7 +5,7 @@ import os
 
 app = Flask(__name__)
 # Habilitar CORS apenas para o domínio da sua aplicação Next.js
-CORS(app, resources={r"/prever": {"origins": "https://challenge-porto-ashy.vercel.app/chat"}})
+CORS(app, resources={r"/prever": {"origins": "https://challenge-porto-ashy.vercel.app"}})
 
 # Carregar o modelo e o vetorizador TF-IDF
 with open('modelo_random_forest2.pkl', 'rb') as f:
